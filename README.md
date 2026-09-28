@@ -24,3 +24,18 @@ def rowWithMax1s(self, matrix):
                 max_ones=ones
                 row=i
         return row
+
+# SEARCH IN A 2-D MATRIX
+def searchMatrix(self, matrix, target):
+        for i in range(len(matrix)):
+            low=0
+            high=len(matrix[i])-1
+            while low<=high:
+                mid=low+(high-low)//2
+                if matrix[i][mid]==target:
+                    return True
+                elif target>matrix[i][mid]:
+                    low=mid+1
+                else:
+                    high=mid-1
+        return False
