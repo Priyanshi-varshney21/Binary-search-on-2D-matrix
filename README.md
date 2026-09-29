@@ -39,3 +39,20 @@ def searchMatrix(self, matrix, target):
                 else:
                     high=mid-1
         return False
+
+# FIND PEAK ELEMENT
+def findPeakGrid(self, mat):
+        low=0
+        high=len(mat)-1
+        while low<=high:
+            mid=low+(high-low)//2
+            col = 0
+            for j in range(len(mat[0])):
+                if mat[mid][j] > mat[mid][col]:
+                    col = j
+        # if element below is bigger
+            if mid + 1 < len(mat) and mat[mid + 1][col] > mat[mid][col]:
+                low = mid + 1
+            else:
+                 high = mid - 1
+        return [low, col]
