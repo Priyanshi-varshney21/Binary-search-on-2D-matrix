@@ -56,3 +56,25 @@ def findPeakGrid(self, mat):
             else:
                  high = mid - 1
         return [low, col]
+
+# MATRIX MEDIAN
+def findMedian(self, matrix):
+        low = mat[0][0]
+        high = mat[0][0]
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                low = min(low, mat[i][j])
+                high = max(high, mat[i][j])
+        reuired=(len(mat)*len(mat[0])//2)
+        while low<=high:
+            mid=low+(high-low)//2
+            count=0
+            for i in range(len(mat)):
+                for j in range(len(mat[0])):
+                    if mat[i][j]<=mid:
+                        count+=1
+            if count<=reuired:
+                low=mid+1
+            else:
+                high=mid-1
+        return low
